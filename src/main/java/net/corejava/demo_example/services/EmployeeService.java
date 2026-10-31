@@ -1,26 +1,17 @@
 package net.corejava.demo_example.services;
 
-import net.corejava.demo_example.Repository.EmployeeRepoData;
-import org.springframework.stereotype.Service;
+import net.corejava.demo_example.entity.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class EmployeeService {
+public interface EmployeeService {
 
-    private final EmployeeRepoData employeeRepoData;
+    Employee createEmployee(Employee employee);
+    List<Employee> getEmployees();
+    public Employee updateEmployees(Employee employee);
+    public Optional<Employee> getEmployeeById(long id);
+    public void deleteById(long id);
+    public List<Employee> searchByname(String name);
 
-    public EmployeeService(EmployeeRepoData employeeRepoData) {
-        this.employeeRepoData = employeeRepoData;
-    }
-
-    public List<String> getAllEmployees() {
-        return employeeRepoData.getAllEmployees();
-    }
-    public void addEmployee(String employee) {
-        employeeRepoData.addEmployee(employee);
-    }
-    public List<Integer> getAllNumbers(){
-        return employeeRepoData.GetAllNumbers();
-    }
 }
